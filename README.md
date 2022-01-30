@@ -9,6 +9,14 @@
 
 API  Rest, utilizando o modolo conceitual, colocando na pratica os padrões de mercados e fazendo uso das boas práticas.
 
+### Associações 
+- Um para muitos / muitos para um
+- Um para um
+- Muitos para Muitos comum
+- Muitos para muitos com classe de associação 
+- Bidirecional / direcionadas
+
+
 #### Tecnologias utilizadas no trabalho. 
 - Ecosistema Spring 
 - Git
