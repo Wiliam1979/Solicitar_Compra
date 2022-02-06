@@ -1,10 +1,9 @@
 package com.br.william.assis.compras.categoria;
 
-import com.br.william.assis.compras.produto.Produto;
+
 
 import javax.persistence.*;
-;import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 public class Categoria {
@@ -15,9 +14,6 @@ public class Categoria {
 
      @Column(nullable = false)
     private String nome;
-
-     @ManyToMany(mappedBy = "categorias")
-     private List<Produto> produtos = new ArrayList<>();
 
 
     public Categoria(String nome) {
@@ -40,11 +36,5 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
 }

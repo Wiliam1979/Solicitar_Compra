@@ -33,6 +33,7 @@ public class Produto {
     public Produto(String nome, BigDecimal preco) {
         this.nome = nome;
         this.preco = preco;
+
     }
 
     public Long getId() {
@@ -67,4 +68,12 @@ public class Produto {
     public void setCategorias(List<Categoria> categorias) {
         this.categorias = categorias;
     }
+
+
+    public boolean adicionarCategoria(Categoria categorias)
+    {
+        return getCategorias().add(categorias);
+    }
+
+
 }
