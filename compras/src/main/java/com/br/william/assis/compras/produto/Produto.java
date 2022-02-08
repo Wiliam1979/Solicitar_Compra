@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 public class Produto {
     @Id
@@ -33,6 +34,7 @@ public class Produto {
     public Produto(String nome, BigDecimal preco) {
         this.nome = nome;
         this.preco = preco;
+
     }
 
     public Long getId() {
@@ -52,19 +54,23 @@ public class Produto {
         this.id = id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
 
     public List<Categoria> getCategorias() {
         return categorias;
     }
 
-    public void setCategorias(List<Categoria> categorias) {
-        this.categorias = categorias;
+
+
+
+    public boolean adicionarCategoria(Categoria categorias)
+    {
+        return getCategorias().add(categorias);
     }
+
+ public  boolean removerCategoria(Categoria categoria){
+  return getCategorias().remove(categoria);
+ }
+
+
 }
