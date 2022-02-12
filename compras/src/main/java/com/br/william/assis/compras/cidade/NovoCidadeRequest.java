@@ -1,7 +1,7 @@
 package com.br.william.assis.compras.cidade;
 
-import com.br.william.assis.compras.produto.Estado.Estado;
-import com.br.william.assis.compras.produto.Estado.EstadoRepository;
+import com.br.william.assis.compras.Estado.Estado;
+import com.br.william.assis.compras.Estado.EstadoRepository;
 
 
 

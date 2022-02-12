@@ -1,4 +1,4 @@
-package com.br.william.assis.compras.produto.Estado;
+package com.br.william.assis.compras.Estado;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

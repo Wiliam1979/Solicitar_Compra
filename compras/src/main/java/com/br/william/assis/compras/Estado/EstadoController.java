@@ -1,4 +1,4 @@
-package com.br.william.assis.compras.produto.Estado;
+package com.br.william.assis.compras.Estado;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
