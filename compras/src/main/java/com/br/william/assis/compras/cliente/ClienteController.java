@@ -1,5 +1,6 @@
 package com.br.william.assis.compras.cliente;
 
+import com.br.william.assis.compras.cidade.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +18,20 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private EnderecoRepository enderecoRepository;
+
+    @Autowired
+
+    private CidadeRepository cidadeRepository;
+
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?>criarCliente(@RequestBody @Valid NovoClienteRequest request){
+    public ResponseEntity<?>criarCliente(@RequestBody @Valid NovoClienteRequest request, NovoEnderecoRequest enderecoRequest){
 
-          Cliente cliente = request.toModel();
+          Cliente cliente = request.toModel(enderecoRepository);
+
 
            clienteRepository.save(cliente);
 

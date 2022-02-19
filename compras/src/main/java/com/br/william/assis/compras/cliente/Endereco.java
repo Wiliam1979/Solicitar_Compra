@@ -34,6 +34,14 @@ public class Endereco {
      @JoinColumn(name = "cidade_id")
      private Cidade cidade;
 
+    public Endereco(String lougradouro, String numero, String complemento, String bairro, String cep) {
+        this.lougradouro = lougradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cep = cep;
+    }
+
     public Cidade getCidade() {
         return cidade;
     }
@@ -53,6 +61,15 @@ public class Endereco {
         this.bairro = bairro;
         this.cep = cep;
         this.cliente = cliente;
+        this.cidade =cidade;
+    }
+
+    public Endereco(String lougradouro, String numero, String complemento, String bairro, String cep,Cidade cidade ) {
+        this.lougradouro = lougradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cep = cep;
         this.cidade =cidade;
     }
 
@@ -82,5 +99,9 @@ public class Endereco {
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }
