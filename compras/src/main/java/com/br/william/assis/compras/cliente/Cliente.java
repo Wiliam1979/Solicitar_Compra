@@ -23,7 +23,7 @@ public class Cliente {
 
      private Integer tipo;
 
-      @OneToMany(mappedBy = "cliente")
+      @OneToMany(cascade= CascadeType.ALL, mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.LAZY)
      private List<Endereco> enderecos = new ArrayList<>();
 
        @ElementCollection
@@ -39,6 +39,7 @@ public class Cliente {
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = tipo.getCod();
+
     }
 
     public Long getId() {
@@ -71,5 +72,12 @@ public class Cliente {
 
     public Set<String> getTelefones() {
         return telefones;
+    }
+
+
+
+    public void AdicionarEndereco(Endereco obj){
+          obj.setCliente(this);
+          this.enderecos.add(obj);
     }
 }

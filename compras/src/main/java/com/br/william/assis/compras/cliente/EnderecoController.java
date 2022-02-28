@@ -30,7 +30,7 @@ public class EnderecoController {
      @Transactional
     public ResponseEntity<?>criarEndereco(@RequestBody @Valid  NovoEnderecoRequest request){
 
-        Endereco endereco = request.toModel(clienteRepository,cidadeRepository);
+        Endereco endereco = request.toModel(cidadeRepository);
 
         enderecoRepository.save(endereco);
 
