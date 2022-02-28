@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/cliente")
+@RequestMapping(value = "/api/cliente")
 public class ClienteController {
 
     @Autowired
@@ -28,12 +28,12 @@ public class ClienteController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?>criarCliente(@RequestBody @Valid NovoClienteRequest request, NovoEnderecoRequest enderecoRequest){
+    public ResponseEntity<?>criarCliente(@RequestBody @Valid NovoClienteRequest request){
 
-          Cliente cliente = request.toModel(enderecoRepository);
-
+          Cliente cliente = request.toModel(cidadeRepository);
 
            clienteRepository.save(cliente);
+
 
         return ResponseEntity.ok().build();
 
