@@ -15,26 +15,28 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api/endereco")
 public class EnderecoController {
 
-     @Autowired
-     private EnderecoRepository enderecoRepository;
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
-     @Autowired
-     ClienteRepository clienteRepository;
+    @Autowired
+    private ClienteRepository clienteRepository;
 
-     @Autowired
-     private CidadeRepository cidadeRepository;
+    @Autowired
+    private CidadeRepository cidadeRepository;
 
+    @PostMapping
+    @Transactional
+    public ResponseEntity<?>criarEndereco(@RequestBody @Valid NovoEnderecoRequest request){
 
-
-     @PostMapping
-     @Transactional
-    public ResponseEntity<?>criarEndereco(@RequestBody @Valid  NovoEnderecoRequest request){
-
-        Endereco endereco = request.toModel(cidadeRepository);
+        Endereco endereco = request.toModel(clienteRepository, cidadeRepository);
 
         enderecoRepository.save(endereco);
 
         return ResponseEntity.ok().build();
-    }
 
+
+
+
+
+    }
 }

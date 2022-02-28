@@ -13,42 +13,24 @@ public class Endereco {
     @Column(nullable = false)
     private String lougradouro;
 
-     @Column(nullable = false)
+    @Column(nullable = false)
     private String numero;
 
-
-     private String complemento;
+    private String complemento;
 
      @Column(nullable = false)
-     private String bairro;
+    private String bairro;
 
      @Column(nullable = false)
      private String cep;
 
-
-     @ManyToOne
-     @JoinColumn(name = "cliente_id")
+      @ManyToOne
+      @JoinColumn(name = "cliente_id")
      private Cliente cliente;
 
-     @ManyToOne
-     @JoinColumn(name = "cidade_id")
-     private Cidade cidade;
-
-    public Endereco(String lougradouro, String numero, String complemento, String bairro, String cep) {
-        this.lougradouro = lougradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cep = cep;
-    }
-
-    public Cidade getCidade() {
-        return cidade;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
+      @ManyToOne
+      @JoinColumn(name = "cidade_id")
+      private Cidade cidade;
 
     @Deprecated
     public Endereco() {
@@ -64,41 +46,44 @@ public class Endereco {
         this.cidade =cidade;
     }
 
-    public Endereco(String lougradouro, String numero, String complemento, String bairro, String cep,Cidade cidade ) {
-        this.lougradouro = lougradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cep = cep;
-        this.cidade =cidade;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
     public String getLougradouro() {
         return lougradouro;
+    }
+
+    public void setLougradouro(String lougradouro) {
+        this.lougradouro = lougradouro;
     }
 
     public String getNumero() {
         return numero;
     }
 
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
     public String getComplemento() {
         return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public String getBairro() {
         return bairro;
     }
 
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
     public String getCep() {
         return cep;
     }
 
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public void setCliente(Cliente cliente) {
