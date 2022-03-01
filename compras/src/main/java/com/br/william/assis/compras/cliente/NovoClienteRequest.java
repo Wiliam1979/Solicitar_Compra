@@ -44,13 +44,15 @@ public class NovoClienteRequest {
 
     private String telefone2;
 
+    private String telefone3;
+
 
 
 
     public NovoClienteRequest() {
     }
 
-    public NovoClienteRequest(String nome, String email, String cpfOuCnpj, Integer tipo, String lougradouro, String numero, String complemento, String bairro, String cep, Long cidade, Long cliente, Long cliente1, String telefone1, String telefone2) {
+    public NovoClienteRequest(String nome, String email, String cpfOuCnpj, Integer tipo, String lougradouro, String numero, String complemento, String bairro, String cep, Long cidade, Long cliente, Long cliente1, String telefone1, String telefone2, String telefone3) {
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
@@ -64,6 +66,7 @@ public class NovoClienteRequest {
         this.cliente = cliente;
         this.telefone1 = telefone1;
         this.telefone2 = telefone2;
+        this.telefone3 = telefone3;
     }
 
     public Cliente toModel( CidadeRepository cidadeRepository) {
@@ -72,6 +75,16 @@ public class NovoClienteRequest {
 
 
         Cidade cidadeId = cidadeRepository.findById(cidade).get();
+
+        cliente.getTelefones().add(telefone1);
+
+        if(getTelefone2()!=null){
+            cliente.getTelefones().add(telefone2);
+        }
+        if (getTelefone3()!= null){
+            cliente.getTelefones().add(telefone3);
+        }
+        
 
         Endereco endereco = new Endereco(this.lougradouro, this.numero, this.complemento, this.bairro, this.cep,cliente, cidadeId);
 
@@ -182,5 +195,9 @@ public class NovoClienteRequest {
 
     public void setCliente(Long cliente) {
         this.cliente = cliente;
+    }
+
+    public String getTelefone3() {
+        return telefone3;
     }
 }
